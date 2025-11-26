@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="UTF-8">
+<title>Acordeón</title>
+
+<style>
+body {
+    font-family: Arial;
+    padding: 20px;
+}
+
+.accordion .item {
+    margin-bottom: 10px;
+}
+
+.question {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background: #000;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 8px;
+}
+
+.answer {
+    display: none;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+</style>
+
+</head>
+<body>
+
+<h2>Preguntas Frecuentes</h2>
+
+<div class="accordion">
+    <div class="item">
+        <button class="question">¿Qué es roadmap.sh?</button>
+        <div class="answer">
+            Es una plataforma que crea rutas de aprendizaje y guías para desarrolladores.
+        </div>
+    </div>
+
+    <div class="item">
+        <button class="question">¿Cuáles son los planes para roadmap.sh?</button>
+        <div class="answer">
+            Continuar agregando más rutas, guías y contenido creado por la comunidad.
+        </div>
+    </div>
+
+    <div class="item">
+        <button class="question">¿Cómo está construido roadmap.sh?</button>
+        <div class="answer">
+            Está construido usando tecnologías web modernas y contribuciones abiertas.
+        </div>
+    </div>
+</div>
+
+<script>
+const questions = document.querySelectorAll(".question");
+
+questions.forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        document.querySelectorAll(".answer").forEach(res => {
+            if (res !== btn.nextElementSibling) res.style.display = "none";
+        });
+
+        const answer = btn.nextElementSibling;
+        answer.style.display =
+            answer.style.display === "block" ? "none" : "block";
+    });
+});
+</script>
+
+</body>
+</html>
